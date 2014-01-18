@@ -1,15 +1,18 @@
-#main {
-	font-family: "Comic Sans MS";
-	background-color: #FC0;
-	border: thick groove #06F;
+.main {
+	color: white;
+	background-color: #050505;
+	border: thick solid #101020;
+	border-radius: 15px;
 	list-style-position: inside;
 	list-style-type: square;
 	height: 650px;
 	width: auto;
+	padding: 10px;
 }
-#logo {
-	background-color: #03F;
-	border: medium double #FF0;
+.logo {
+	background-color: #E0E0E0;
+	border: 2px solid #AAF;
+	border-radius: 5px;
 	height: auto;
 	width: auto;
 	position: fixed;
@@ -19,4 +22,13 @@
 	bottom: auto;
 	margin: 80px;
 	float: right;
+	padding: 5px;
+}
+
+body {
+	background-color: #050505;
+}
+
+h4 {
+	color: #00FF00;
 }

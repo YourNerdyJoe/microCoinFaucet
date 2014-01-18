@@ -1,21 +1,23 @@
 <?php
 $sqlhost = "127.0.0.1";
-$sqluser = "root";
-$sqlpass = "sqlroot1234joe";
+$sqluser = "";
+$sqlpass = "";
 $sqldbname = "faucet";
 $rpcuser = "microcoinrpc";
-$rpcpass = "randomrpcpassword";
+$rpcpass = "";
 $rpcipport = "127.0.0.1:44444";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>microCoinFaucet</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 
 <body>
-<div id="main">
+<div class="main">
 <h1>YourNerdyJoe's microCoin Faucet</h1>
+<p>
 MRC in faucet:
 <?php
 //Script made by Smiba from doges.org - http://bartstuff.eu/doge/
@@ -25,15 +27,16 @@ MRC in faucet:
 require_once 'jsonrpcphp/jsonRPCClient.php';
 $mrc = new jsonRPCClient("http://$rpcuser:$rpcpass@$rpcipport/");
 $balance = $mrc->getbalance();
+echo "<b>";
 if($balance>120){
 print_r($balance);
 }else{
 echo "Dry faucet, please donate";
 }
+echo "</b>";
 
-echo "<br/>  Faucet Donation:";
+echo "<br/>Faucet Donation:";
 	print_r($mrc->getaccountaddress(""));
-echo "<br/>";
 
 $username = $_POST['address'];
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -66,27 +69,35 @@ if(!empty($username)) {
                                 echo "<h4>You've been sent $amount MRC!</h4>";
 
                         }else{
-                                echo "Oops! You have already submitted recently. <br/>You can come back for new MRC every 8 hours!";
+                                echo "<h4>Oops! You have already submitted recently. <br/>You can come back for new MRC every 8 hours!</h4>";
                         }
                 }
         }
 }
 ?>
-<br />
-<Form Name="form1" Method="POST" ACTION="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-Your Address: <INPUT TYPE="Text" VALUE="<?php echo $_POST['address']; ?>" NAME = "address">
-<INPUT TYPE="Submit" Name="Submit" VALUE="Send">
+</p>
+
+<p>
+<form name="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+Your Address: <input type="Text" value="<?php echo $_POST['address']; ?>" name = "address"/>
+<input type="Submit" name="Submit" value="Send"/>
 <br/>  
-</FORM>
+</form>
+</p>
+
+<p>
+<div class="logo">
+<img src="mrc-logo.png"  width="300" height="327" alt="microCoin logo" />
+</div>
+</p>
+
 <p>
 Get the source code on <a href="https://github.com/YourNerdyJoe">GitHub</a>!
 </p>
 <p>
 Forked from unklStewy's <a href="https://github.com/grimd34th/DogeFaucet">DogeFaucet</a>
 </p>
-<div id="logo">
-<img src="mrc-logo.png"  width="300" height="300" alt="microCoin logo" />
-</div>
+
 </div>
 </body>
 </html>
