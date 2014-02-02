@@ -41,7 +41,7 @@ echo "<br/>Faucet Donation:";
 $username = $_POST['address'];
 $ip = $_SERVER['REMOTE_ADDR'];
 if(!empty($username)) {
-        if($mrc->getbalance() <= 120){
+        if($mrc->getbalance() <= 20){
                echo "<h4>Dry faucet, please donate</h4>";
         }else{
                 $check = $mrc->validateaddress($username);
