@@ -1,0 +1,28 @@
+.main {
+	color: white;
+	background-color: #050505;
+	border: thick solid #101020;
+	border-radius: 15px;
+	list-style-position: inside;
+	list-style-type: square;
+	height: 770px;
+	width: auto;
+	padding: 10px;
+}
+.logo {
+	background-color: #E0E0E0;
+	border: 2px solid #AAF;
+	border-radius: 5px;
+	height: 327px;
+	width: 300px;
+	margin: 40px;
+	padding: 5px;
+}
+
+body {
+	background-color: #050505;
+}
+
+h4 {
+	color: #00FF00;
+}
