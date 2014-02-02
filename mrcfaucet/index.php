@@ -2,7 +2,7 @@
 $sqlhost = "127.0.0.1";
 $sqluser = "";
 $sqlpass = "";
-$sqldbname = "faucet";
+$sqldbname = "";
 $rpcuser = "microcoinrpc";
 $rpcpass = "";
 $rpcipport = "127.0.0.1:44444";
@@ -11,7 +11,7 @@ $rpcipport = "127.0.0.1:44444";
 <html>
 <head>
 	<title>microCoinFaucet</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
 
 <body>
@@ -28,7 +28,7 @@ require_once 'jsonrpcphp/jsonRPCClient.php';
 $mrc = new jsonRPCClient("http://$rpcuser:$rpcpass@$rpcipport/");
 $balance = $mrc->getbalance();
 echo "<b>";
-if($balance>120){
+if($balance>20){
 print_r($balance);
 }else{
 echo "Dry faucet, please donate";
@@ -61,7 +61,7 @@ if(!empty($username)) {
                                 $sql1=sprintf("INSERT INTO users(address, time, ip)VALUES('%s', '$time', '$ip')",
                                 mysql_real_escape_string($username));
                                 $result1=mysql_query($sql1);
-                                $amount = rand(80,120);
+                                $amount = rand(8,15);
 				if($amount>$balance){
 					$amount = $balance;
 				}
@@ -92,12 +92,16 @@ Your Address: <input type="Text" value="<?php echo $_POST['address']; ?>" name =
 </p>
 
 <p>
-Get the source code on <a href="https://github.com/YourNerdyJoe">GitHub</a>!
+Get the source code on <a href="https://github.com/YourNerdyJoe/microCoinFaucet">GitHub</a>!
 </p>
 <p>
 Forked from unklStewy's <a href="https://github.com/grimd34th/DogeFaucet">DogeFaucet</a>
 </p>
-
+<p>
+Please donate to help keep this faucet going.<br/>
+BTC: 1qjRwgUNFdUqeTYJzcD4WJG7JH73vrMhh<br/>
+MRC: 1vd6VHyX471SCzjy3bQz3ELdPkdWycDKi
+</p>
 </div>
 </body>
 </html>
